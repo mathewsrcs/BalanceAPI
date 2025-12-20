@@ -1,0 +1,26 @@
+# Build results
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# User-specific files
+*.env
+
+# NuGet packages
+*.nupkg
+**/packages/*
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
+
+# Claude Code (not for production)
+.claude/
