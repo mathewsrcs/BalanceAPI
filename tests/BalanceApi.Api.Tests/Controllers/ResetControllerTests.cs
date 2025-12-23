@@ -39,7 +39,7 @@ public class ResetControllerTests
     }
 
     [Fact]
-    public void Reset_ShouldReturnOkWithMessage()
+    public void Reset_ShouldReturnOk()
     {
         // Arrange
         var repository = new MockAccountRepository();
@@ -52,8 +52,8 @@ public class ResetControllerTests
         var result = controller.Reset();
 
         // Assert
-        var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("OK", okResult.Value);
+        var contentResult = Assert.IsType<ContentResult>(result);
+        Assert.Equal("OK", contentResult.Content);
     }
 
     [Fact]

@@ -17,6 +17,6 @@ public class ResetController : ControllerBase
     public IActionResult Reset()
     {
         _accountService.Reset();
-        return Ok("OK");
+        return Content("OK");
     }
 }
