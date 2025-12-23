@@ -1,8 +1,16 @@
+using BalanceApi.Application.Services;
+using BalanceApi.Domain.Interfaces;
+using BalanceApi.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenApi at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+// Register dependencies
+builder.Services.AddSingleton<IAccountRepository, InMemoryAccountRepository>();
+builder.Services.AddScoped<AccountService>();
 
 var app = builder.Build();
 
@@ -13,5 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
